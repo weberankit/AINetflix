@@ -3,10 +3,11 @@ import './App.css';
 import Body  from './component/Body'
 
 function App() {
+
+
   return (
   <>
-  
-  <Body/>
+<Body/>
   </>
   );
 }
