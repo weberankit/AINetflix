@@ -1,21 +1,82 @@
 import Header from "./Header"
 import {useState , useRef} from "react" 
 import { checkvalidate } from "../utils/validate"
+import {createUserWithEmailAndPassword ,signInWithEmailAndPassword , updateProfile} from "firebase/auth";
+import {auth} from "../utils/firebase"
+import { useDispatch } from "react-redux";
+import { addUser } from "../utils/userSlice";
+import { useNavigate } from "react-router-dom";
 const Login=()=>{
+  const dispatch = useDispatch()
 //const errorMsg=useRef("ok")  //not using this as its not reflect update in ui because it doesnot rerender
 const [errorMsg, setErrorMsg]=useState()
 const email=useRef(null)
 const password=useRef(null)
+const fullName=useRef(null)
 const [isLogin , setisLogin]=useState(true)
+//const navigate=useNavigate()
 const toggleSign=()=>{
 setisLogin(!isLogin)
 }
 const handleCheckvalidate=()=>{
-console.log(email.current.value ,password)
+ 
+    //handele error / validation of form
 const message =checkvalidate(email.current.value , password.current.value)
 //using usref to store value
 //errorMsg.current=message
 setErrorMsg(message)
+//if message is null i.e falsy value so if it is true then return nothing i.e not do further task
+if(message)return
+//authentication
+if(!isLogin){
+//sign up
+createUserWithEmailAndPassword(auth, email.current.value, password.current.value)
+  .then((userCredential) => {
+    // Signed up 
+    const user = userCredential.user;
+   //navigate("/browse")
+
+//to display name of user
+   updateProfile(user, {
+    displayName: fullName.current.value, photoURL: "https://example.com/jane-q-user/profile.jpg"
+  }).then(() => {
+    // Profile updated!
+    // navigate("/browse")
+///since redux not wait to updating value so we are dispatch here as to make it update
+const {uid ,email,displayName} = auth.currentUser;
+dispatch(addUser( {uid:uid ,email:email,displayName:displayName}))
+  }).catch((error) => {
+    // An error occurred
+    // ...
+    setErrorMsg(error.message)
+  });
+
+
+
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    setErrorMsg(errorCode + " - " + errorMessage)
+});
+
+
+}else{
+//sign in
+signInWithEmailAndPassword(auth, email.current.value, password.current.value)
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    console.log(user)
+ //navigate("/browse")
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    setErrorMsg(errorCode + " - " + errorMessage)
+  });
+}
+
 }
 
     return(
@@ -31,7 +92,7 @@ setErrorMsg(message)
 
 <form onSubmit={(e)=>e.preventDefault()} className="absolute w-3/12 p-12 bg-black my-36 mx-auto right-0 left-0  text-white bg-opacity-80 rounded-lg" >
     <h1>{isLogin?"Sign In":"Sign Up"}</h1>
-{!isLogin && <input type="text" className="py-4 my-4 w-full bg-gray-600 rounded-lg" placeholder="  Full Name"/>
+{!isLogin && <input ref={fullName} type="text" className="py-4 my-4 w-full bg-gray-600 rounded-lg" placeholder="  Full Name"/>
 }
 <input ref={email} type="text" className="py-4 my-4 w-full bg-gray-600 rounded-lg" placeholder="  Email Address"/>
 <input ref={password} type="password" className="py-4 w-full my-4 bg-gray-600 rounded-lg" placeholder="  password"/>
