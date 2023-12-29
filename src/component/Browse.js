@@ -1,7 +1,13 @@
+ 
+ import Header from "./Header";
 const Browse=()=>{
+
+
+
     return(
         <>
-        <h1>ddd</h1>
+       <Header/>
+        
         </>
     )
 }
