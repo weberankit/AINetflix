@@ -13,7 +13,7 @@ const Header=()=>{
         //when user click on sign out btn this api   will call onauthstatechange else part and code inside it
     signOut(auth).then(() => {
       // Sign-out successful.
-      navigate("/")
+    //  navigate("/")
     }).catch((error) => {
       // An error happened.
     });

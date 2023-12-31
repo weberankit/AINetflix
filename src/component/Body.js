@@ -21,7 +21,7 @@ useEffect(()=>{
         // User is signed out
         // ...
          dispatch(removeUser())
-         
+         navigate("/")
       }
     });
 
