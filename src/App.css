@@ -1,0 +1,8 @@
+
+/*.hide::-webkit-scrollbar {
+    display: none;
+}
+.hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+   /* scrollbar-width: none;  /* Firefox */
+ /* }*/

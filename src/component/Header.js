@@ -1,14 +1,15 @@
-
+import { useDispatch } from "react-redux";
 import {signOut } from "firebase/auth";
  import { auth } from "../utils/firebase";
  import { useNavigate } from "react-router-dom";
-import {useSelector} from "react-redux"
-
+ import {useSelector} from "react-redux"
+import {logo} from "../constant"
+import { toggle } from "../utils/gptSlice";
 const Header=()=>{
-
     const navigate=useNavigate()
+    const dispatch=useDispatch()
   const user=useSelector((store)=>store.user)
-
+ // const gptHandle=useSelector(store=>store.gpt)
     const handlesignout=()=>{
         //when user click on sign out btn this api   will call onauthstatechange else part and code inside it
     signOut(auth).then(() => {
@@ -19,15 +20,25 @@ const Header=()=>{
     });
 }
 
+
+const handleGpt=()=>{
+dispatch(toggle())
+}
+
+
 return(
     <>
     {user && (
 <div className="absolute px-8 py-2 bg-gradient-to-b from-black z-10 w-screen flex justify-between">
-    <img className="w-44" src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png" alt="logo-img"></img>
-    
-    <div className="p-2">
-        <span>{user?.displayName} </span>
-<button onClick={handlesignout}>signout</button>
+    <img className="w-44" src={logo} alt="logo_img"></img>
+     <button onClick={handleGpt} className="text-white bg-red-600 px-16  rounded-2xl">GPT</button>
+    <div className="p-2 flex border border-red-700 border-b-0 justify-between ">
+     
+        <div className="p-1">  <img className="w-7 rounded-md" src={user?.photoURL}></img> </div>
+  <div>
+        <h3 className="font-bold text-white">{user?.displayName} </h3>
+  <button className="text-white" onClick={handlesignout}>signout</button>
+</div>
 </div>
     </div>
     )

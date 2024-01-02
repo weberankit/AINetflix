@@ -1,5 +1,5 @@
-import Login from "./Login"
-import Browse from "./Browse"
+//import Login from "./Login"
+//import Browse from "./Browse"
 import { Outlet , useNavigate} from "react-router-dom";
 import {onAuthStateChanged } from "firebase/auth";
 import { useEffect } from "react";
@@ -11,11 +11,11 @@ const dispatch=useDispatch()
 const navigate = useNavigate()
 useEffect(()=>{
     //user sign in/out mange b this
- onAuthStateChanged(auth, (user) => {
+ const subscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         //sign in
-        const {uid ,email,displayName} = user;
-        dispatch(addUser( {uid:uid ,email:email,displayName:displayName}))
+        const {uid ,email,displayName,photoURL} = user;
+        dispatch(addUser( {uid:uid ,email:email,displayName:displayName,photoURL:photoURL}))
        navigate("/browse")
       } else {
         // User is signed out
@@ -24,6 +24,8 @@ useEffect(()=>{
          navigate("/")
       }
     });
+
+return ()=>subscribe()
 
 },[])
   

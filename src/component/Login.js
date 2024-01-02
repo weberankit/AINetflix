@@ -6,6 +6,7 @@ import {auth} from "../utils/firebase"
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
 import { useNavigate } from "react-router-dom";
+import { userImg } from "../constant";
 const Login=()=>{
   const dispatch = useDispatch()
 //const errorMsg=useRef("ok")  //not using this as its not reflect update in ui because it doesnot rerender
@@ -38,13 +39,13 @@ createUserWithEmailAndPassword(auth, email.current.value, password.current.value
 
 //to display name of user
    updateProfile(user, {
-    displayName: fullName.current.value, photoURL: "https://example.com/jane-q-user/profile.jpg"
+    displayName: fullName.current.value, photoURL: userImg
   }).then(() => {
     // Profile updated!
     // navigate("/browse")
 ///since redux not wait to updating value so we are dispatch here as to make it update
-const {uid ,email,displayName} = auth.currentUser;
-dispatch(addUser( {uid:uid ,email:email,displayName:displayName}))
+const {uid ,email,displayName,photoURL} = auth.currentUser;
+dispatch(addUser( {uid:uid ,email:email,displayName:displayName , photoURL:photoURL}))
   }).catch((error) => {
     // An error occurred
     // ...
