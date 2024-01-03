@@ -5,6 +5,7 @@ import {signOut } from "firebase/auth";
  import {useSelector} from "react-redux"
 import {logo} from "../constant"
 import { toggle } from "../utils/gptSlice";
+import { supported_languages } from "../constant";
 const Header=()=>{
     const navigate=useNavigate()
     const dispatch=useDispatch()
@@ -25,13 +26,22 @@ const handleGpt=()=>{
 dispatch(toggle())
 }
 
+const handleLang=(e)=>{
+  console.log(e.target.value)
+  }
+
 
 return(
     <>
+
+
     {user && (
 <div className="absolute px-8 py-2 bg-gradient-to-b from-black z-10 w-screen flex justify-between">
     <img className="w-44" src={logo} alt="logo_img"></img>
      <button onClick={handleGpt} className="text-white bg-red-600 px-16  rounded-2xl">GPT</button>
+     <select className="p-2 m-2 bg-gray-900 text-white rounded-lg" onChange={handleLang}>
+{supported_languages.map(item=>{return <option key={item.identifier} value={item.identifier} >{item.name}</option>})}
+     </select>
     <div className="p-2 flex border border-red-700 border-b-0 justify-between ">
      
         <div className="p-1">  <img className="w-7 rounded-md" src={user?.photoURL}></img> </div>

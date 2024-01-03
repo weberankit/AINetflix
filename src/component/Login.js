@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
 import { useNavigate } from "react-router-dom";
 import { userImg } from "../constant";
+import { backgroundImg } from "../constant";
 const Login=()=>{
   const dispatch = useDispatch()
 //const errorMsg=useRef("ok")  //not using this as its not reflect update in ui because it doesnot rerender
@@ -85,7 +86,7 @@ signInWithEmailAndPassword(auth, email.current.value, password.current.value)
         <Header/>
         <div className="absolute"> 
      <img 
-     src="https://assets.nflxext.com/ffe/siteui/vlv3/b4c7f092-0488-48b7-854d-ca055a84fb4f/5b22968d-b94f-44ec-bea3-45dcf457f29e/IN-en-20231204-popsignuptwoweeks-perspective_alpha_website_medium.jpg" 
+     src={backgroundImg}
      alt="bg-img">
 
      </img>

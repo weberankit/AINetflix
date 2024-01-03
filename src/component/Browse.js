@@ -6,8 +6,10 @@
 import usePopularMovies from "../hooks/usePopularMovies";
  import useTopRatedMovies from "../hooks/useTopRated";
  import Gpt from "./Gpt";
+ import { useSelector } from "react-redux";
 const Browse=()=>{
-
+  const toggleValue=useSelector(store=>store.gpt.value)
+  console.log(toggleValue,'its va')
     useMovieslist()
     usePopularMovies()
     useTopRatedMovies()
@@ -15,9 +17,14 @@ const Browse=()=>{
     return(
         <>
        <Header/>
-       <Gpt/>
+    { toggleValue?
+    <Gpt/>:
+    <>
         <MainContainer/>
         <SecondaryContainer/>
+    </>
+        
+        }
         </>
     )
 }
