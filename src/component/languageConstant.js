@@ -16,3 +16,4 @@ const lang={
         gptSearchPlaceholder:"हमरा से पूछीं सिनेमा के बारे में कुछुओ"
     }
 }
+export default lang

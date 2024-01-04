@@ -1,13 +1,14 @@
 import { useDispatch } from "react-redux";
 import {signOut } from "firebase/auth";
  import { auth } from "../utils/firebase";
- import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
  import {useSelector} from "react-redux"
 import {logo} from "../constant"
 import { toggle } from "../utils/gptSlice";
 import { supported_languages } from "../constant";
+import { changeLang } from "../utils/configSlice";
 const Header=()=>{
-    const navigate=useNavigate()
+    //const navigate=useNavigate()
     const dispatch=useDispatch()
   const user=useSelector((store)=>store.user)
  // const gptHandle=useSelector(store=>store.gpt)
@@ -27,7 +28,9 @@ dispatch(toggle())
 }
 
 const handleLang=(e)=>{
-  console.log(e.target.value)
+//  console.log(e.target.value , e.target)
+ dispatch(changeLang(e.target.value))
+  
   }
 
 

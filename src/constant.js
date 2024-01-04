@@ -14,7 +14,7 @@ export const Api_options = {
 
   export const supported_languages=[
     {identifier:"en",name:"English"},
-    {identifier:"hindi",name:"Hindi"},
+    {identifier:"hn",name:"Hindi"},
     {identifier:"spanish",name:"Spanish"},
     {identifier:"bhojpuri",name:"Bhojpuri"},
 
