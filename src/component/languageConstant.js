@@ -1,6 +1,6 @@
 const lang={
     en:{
-        search:"Search",
+        search:"Show ",
         gptSearchPlaceholder:"Ask me Anything about movie"
     },
     hn:{

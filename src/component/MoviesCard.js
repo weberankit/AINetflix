@@ -1,6 +1,8 @@
 import { img_url } from "../constant"
 const MoviesCard=({posterpath})=>{
-    //console.log(posterpath+img_url)
+
+    if(!posterpath)return
+    
     return(
         <>
         <div className="w-48 pr-4 cursor-pointer">
