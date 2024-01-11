@@ -19,3 +19,35 @@ export const Api_options = {
     {identifier:"bhojpuri",name:"Bhojpuri"},
 
   ]
+
+
+  //constant file
+export function key(){
+  return "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"
+}
+
+  export const openaiKey=  "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"
+ // console.log("hi")
+    //console.log(searchValue?.current?.value)
+    /*
+    const gptQuery =
+    "Act as a Movie Recommendation system and suggest some movies for the query : " +
+    searchValue.current.value +
+    ". only give me names of 5 movies, comma seperated like the example result given ahead. Example Result: Gadar, Sholay, Don, Golmaal, Koi Mil Gaya";
+ 
+  const gptResults = await openai.chat.completions.create({
+    messages: [{ role: "user", content: gptQuery }],
+    model: "gpt-3.5-turbo",
+  });
+  console.log(gptResults)*/
+ //////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+ {
+  //<form className="w-1/2 bg-black grid grid-cols-12 " onSubmit={(e)=>e.preventDefault()}> </form>
+  
+              /*<input
+              ref={searchValue}
+               type="text" 
+            placeholder={}
+              className="p-4 m-4 col-span-9"
+              ></input>*/
+            }

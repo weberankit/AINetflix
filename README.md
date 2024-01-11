@@ -69,3 +69,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 vvvvv
+
+
+for muti lang--  
+1 - itendifier and value of checkbox  and object key of changed lang must be same so 
+2 - when user select option then value dispatch to store it that value is basiclly value of identifier
+3 - simply using useSelector to get stored value and using bracket notaion to show the change language

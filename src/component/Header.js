@@ -11,7 +11,8 @@ const Header=()=>{
     //const navigate=useNavigate()
     const dispatch=useDispatch()
   const user=useSelector((store)=>store.user)
- // const gptHandle=useSelector(store=>store.gpt)
+ const showGptBtn=useSelector(store=>store.gpt.value)
+ console.log(showGptBtn)
     const handlesignout=()=>{
         //when user click on sign out btn this api   will call onauthstatechange else part and code inside it
     signOut(auth).then(() => {
@@ -41,7 +42,7 @@ return(
     {user && (
 <div className="absolute px-8 py-2 bg-gradient-to-b from-black z-10 w-screen flex justify-between">
     <img className="w-44" src={logo} alt="logo_img"></img>
-     <button onClick={handleGpt} className="text-white bg-red-600 px-16  rounded-2xl">GPT</button>
+     <button onClick={handleGpt} className="text-white bg-red-600 px-16  rounded-2xl">{showGptBtn ?  "Home" : "GPT" }</button>
      <select className="p-2 m-2 bg-gray-900 text-white rounded-lg" onChange={handleLang}>
 {supported_languages.map(item=>{return <option key={item.identifier} value={item.identifier} >{item.name}</option>})}
      </select>
