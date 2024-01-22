@@ -7,11 +7,18 @@ import appStore from './utils/appSlice';
 import Login from './component/Login';
 import Browse from './component/Browse';
 import { createBrowserRouter , RouterProvider} from "react-router-dom";
+import Translate from './component/Translate';
+import MoviesDetail from './component/MoviesDetail';
+import Error from "./component/Error"
+
+
 function App() {
+
   const appRouter=createBrowserRouter([
   {  
   path:"/",
   element:<Body/>,
+  errorElement:<Error/>,
   children:[
     {
       path:"/",
@@ -19,11 +26,17 @@ function App() {
     },
     {
         path:"/browse",
-        element:<Browse/>
+        element:<Browse/>,
+        
     },
+  {
+    path:"/detail",
+    element:<MoviesDetail/>
+  }
   ],
   }
 ])
+
 
   return (
   <>

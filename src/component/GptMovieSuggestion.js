@@ -1,16 +1,17 @@
 import { useSelector } from "react-redux"
 import MoviesCard from "./MoviesCard"
+import ShimmerEffect from "./ShimmerEffect"
 const GptMovieSuggestion=()=>{
 const selector=useSelector(store=>store.movies.movie)
-
-if(!selector) return 
+console.log(selector)
+if(!selector) return <ShimmerEffect/>
 
 return(
     <>
 {selector.map(item=>{
    
     return(
-      <MoviesCard key={item.id} posterpath={item.poster_path}/>
+      <MoviesCard key={item.id} moviedetails={item} posterpath={item.poster_path}/>
     )
     })}
 
