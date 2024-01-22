@@ -9,7 +9,8 @@ initialState:{
 },
 reducers:{
     toggle:(state)=>{
-     state.value = !state.value
+    state.value = !state.value
+ //state.value=action.payload
     },
     movieGenres:(state,action)=>{
      state.movieGenres=action.payload

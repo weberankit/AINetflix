@@ -8,8 +8,10 @@ import { addUser } from "../utils/userSlice";
 import { useNavigate } from "react-router-dom";
 import { userImg } from "../constant";
 import { backgroundImg } from "../constant";
+//import { useNavigate } from "react-router-dom";
 const Login=()=>{
   const dispatch = useDispatch()
+
 //const errorMsg=useRef("ok")  //not using this as its not reflect update in ui because it doesnot rerender
 const [errorMsg, setErrorMsg]=useState()
 const email=useRef(null)
@@ -84,7 +86,7 @@ signInWithEmailAndPassword(auth, email.current.value, password.current.value)
     return(
         <>
         <Header/>
-        <div className="absolute"> 
+        <div className="absolute "> 
      <img 
      src={backgroundImg}
      alt="bg-img">
