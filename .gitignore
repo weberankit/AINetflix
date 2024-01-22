@@ -11,7 +11,8 @@
 # production
 /build
 /constant
-constant.js
+src/constant.js
+
 # misc
 .DS_Store
 .env.local
