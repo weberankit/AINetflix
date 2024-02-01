@@ -13,8 +13,12 @@ const [transValue , setTransValue] = useState({title,overview})
      //const [overView , setOverView] =useState(overview)
    //const [titles , setTitle] = useState(title)
  // useTranslate(langValue , title , overview,setOverView ,setTitle)
-    //error hanndling
- /* */ if((transValue.overview === undefined)||(transValue.overview === null) ){
+ 
+useTranslate(langValue,transValue.title,transValue.overview,setTransValue)
+
+
+   //error hanndling
+ /*if((transValue.overview === undefined)||(transValue.overview === null) ){
     setTransValue({overview:overview})
     console.log("333this is teaching")
    }
@@ -22,7 +26,10 @@ const [transValue , setTransValue] = useState({title,overview})
       setTransValue({title:title})
     console.log("333this is seco teaching")
    }
-useTranslate(langValue,transValue.title,transValue.overview,setTransValue)
+ */ 
+
+
+
 
 return(
 <div className="w-screen aspect-video pt-36 px-12 absolute text-white bg-gradient-to-r from-black">

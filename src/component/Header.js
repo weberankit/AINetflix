@@ -41,7 +41,7 @@ const handleLang=(e)=>{
 
   }
   console.log(user,"iii")
-user ?dispatch(loginSkip(false)):dispatch(loginSkip(true))
+user ?dispatch(loginSkip(false)):console.log('hi')
 
 return(
     <>
