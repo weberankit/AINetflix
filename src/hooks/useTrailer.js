@@ -9,6 +9,7 @@ const dispatch=useDispatch()
     const getMoviesVideo=async()=>{
         const data= await fetch(`https://api.themoviedb.org/3/movie/${moviesId}/videos?language=en-US`, Api_options)
         const json =  await data.json()
+        if(json.results===undefined)return
         const filterVideo=json?.results.filter(video=>video.type ===  "Trailer")
       //if video type trailer is not avail then select any video from list of videos
         const trailerVideo=filterVideo.length?filterVideo[0]:json.results[0]

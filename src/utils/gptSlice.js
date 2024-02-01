@@ -5,7 +5,8 @@ const gptSlice=createSlice({
 name:"Gptslice",
 initialState:{
     value:false,
-    movieGenres:null
+    movieGenres:null,
+    gptMovies:null
 },
 reducers:{
     toggle:(state)=>{
@@ -14,10 +15,13 @@ reducers:{
     },
     movieGenres:(state,action)=>{
      state.movieGenres=action.payload
+    },
+    gptMovies:(state,action)=>{
+        state.gptMovies=action.payload
     }
 }
 })
 
 
 export default gptSlice.reducer
-export const {toggle ,movieGenres} =  gptSlice.actions
+export const {toggle ,movieGenres , gptMovies} =  gptSlice.actions

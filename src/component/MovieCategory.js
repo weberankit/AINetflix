@@ -18,17 +18,18 @@ dispatch(showMovie(data.results))
 }
 movieList()
 }
-  if(moviesCategory===null)return <ShimmerEffect/>
+  if((moviesCategory===null) || (!moviesCategory))return <ShimmerEffect/>
 
 return(
 <>
 <div className="flex flex-col">
   <div className="flex flex-wrap">
+    
 {
   moviesCategory && moviesCategory.map(item=>{
           return (<>
           <div >
-          <button onClick={()=>handleMovielist(item.id)} className="text-white p-2 flex-wrap border border-s-violet-100 m-2 hover:bg-white hover:text-black">{item.name}</button>
+          <button onClick={()=>handleMovielist(item.id)} className="text-white text-sm sm:text-base p-2 flex-wrap border border-s-violet-100 m-2 hover:bg-white hover:text-black">{item.name}</button>
            </div>
            
            </>)
