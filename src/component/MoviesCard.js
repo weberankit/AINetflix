@@ -1,6 +1,6 @@
 import { img_url } from "../constant"
-import MoviesDetail from "./MoviesDetail"
-import { useState } from "react"
+//import MoviesDetail from "./MoviesDetail"
+//import { useState } from "react"
 import { Link } from "react-router-dom"
 import { moviesDetail } from "../utils/moviesSlice"
 

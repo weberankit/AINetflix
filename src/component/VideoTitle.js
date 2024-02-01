@@ -14,14 +14,14 @@ const [transValue , setTransValue] = useState({title,overview})
    //const [titles , setTitle] = useState(title)
  // useTranslate(langValue , title , overview,setOverView ,setTitle)
     //error hanndling
- /*  if((overView === undefined)||(overView === null) ){
-    setOverView(overview)
+ /* */ if((transValue.overview === undefined)||(transValue.overview === null) ){
+    setTransValue({overview:overview})
     console.log("333this is teaching")
    }
-   if((titles === undefined)||(titles === null) ){
-    setTitle(title)
+   if((transValue.title === undefined)||(transValue.title === null) ){
+      setTransValue({title:title})
     console.log("333this is seco teaching")
-   }*/
+   }
 useTranslate(langValue,transValue.title,transValue.overview,setTransValue)
 
 return(
