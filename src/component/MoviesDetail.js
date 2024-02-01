@@ -1,10 +1,10 @@
-import { useNavigate } from "react-router-dom"
+//import { useNavigate } from "react-router-dom"
 import { img_url } from "../constant"
 import {  useSelector } from "react-redux"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faClose, faCoffee, faPauseCircle, faPlayCircle } from '@fortawesome/free-solid-svg-icons'
-import VideoBackgrond from "./VideoBackground"
-import { useEffect, useState } from "react"
+import { faPauseCircle, faPlayCircle } from '@fortawesome/free-solid-svg-icons'
+//import VideoBackgrond from "./VideoBackground"
+import {  useState } from "react"
 import useTrailer from "../hooks/useTrailer"
 import Header from "./Header"
 //import {useEffect} from "react"

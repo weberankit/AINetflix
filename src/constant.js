@@ -23,11 +23,8 @@ export const Api_options = {
 
 
   //constant file
-export function key(){
-  return "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"
-}
 
-  export const openaiKey=  "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"
+  
  // console.log("hi")
     //console.log(searchValue?.current?.value)
     /*

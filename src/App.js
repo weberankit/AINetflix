@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
 import Body  from './component/Body'
 import { Provider } from "react-redux";
@@ -7,7 +7,7 @@ import appStore from './utils/appSlice';
 import Login from './component/Login';
 import Browse from './component/Browse';
 import { createBrowserRouter , RouterProvider} from "react-router-dom";
-import Translate from './component/Translate';
+//import Translate from './component/Translate';
 import MoviesDetail from './component/MoviesDetail';
 import Error from "./component/Error"
 

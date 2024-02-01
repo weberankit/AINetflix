@@ -1,5 +1,5 @@
 import GptSearchBar from "./GptSearchBar"
-import GptMovieSuggestion from "./GptMovieSuggestion"
+//import GptMovieSuggestion from "./GptMovieSuggestion"
 import { backgroundImg } from "../constant"
 const Gpt=()=>{
 return(

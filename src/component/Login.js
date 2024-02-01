@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { userImg } from "../constant";
 import { backgroundImg } from "../constant";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGlobe, faGoogle } from "@fortawesome/free-solid-svg-icons";
+import { faGlobe } from "@fortawesome/free-solid-svg-icons";
 import {  signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { loginSkip } from "../utils/configSlice";
 
@@ -75,7 +75,7 @@ dispatch(addUser( {uid:uid ,email:email,displayName:displayName , photoURL:photo
 signInWithEmailAndPassword(auth, email.current.value, password.current.value)
   .then((userCredential) => {
     // Signed in 
-    const user = userCredential.user;
+    //const user = userCredential.user;
    // console.log(user)
  //navigate("/browse")
   })
@@ -96,19 +96,19 @@ signInWithPopup(auth, provider)
   .then((result) => {
     // This gives you a Google Access Token. You can use it to access the Google API.
     const credential = GoogleAuthProvider.credentialFromResult(result);
-    const token = credential.accessToken;
+   // const token = credential.accessToken;
     // The signed-in user info.
-    const user = result.user;
+   // const user = result.user;
     // IdP data available using getAdditionalUserInfo(result)
     // ...
   }).catch((error) => {
     // Handle Errors here.
-    const errorCode = error.code;
+    //const errorCode = error.code;
     const errorMessage = error.message;
     // The email of the user's account used.
-    const email = error.customData.email;
+   // const email = error.customData.email;
     // The AuthCredential type that was used.
-    const credential = GoogleAuthProvider.credentialFromError(error);
+   // const credential = GoogleAuthProvider.credentialFromError(error);
     // ...
     setErrorMsg(errorMessage)
   });

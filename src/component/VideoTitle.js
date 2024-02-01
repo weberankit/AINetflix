@@ -1,6 +1,6 @@
 import useTranslate from "../hooks/useTranslate"
 import { useSelector } from "react-redux"
-import { useState ,useEffect} from "react"
+import { useState } from "react"
 import lang from "./languageConstant"
 const VideoTitle=({title,overview})=>{
 

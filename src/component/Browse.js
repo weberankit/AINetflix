@@ -7,9 +7,9 @@ import usePopularMovies from "../hooks/usePopularMovies";
  import useTopRatedMovies from "../hooks/useTopRated";
  import Gpt from "./Gpt";
  import { useSelector } from "react-redux";
-import Translate from "./Translate";
-import { Outlet } from "react-router-dom";
-import main from "../utils/openAI";
+//import Translate from "./Translate";
+//import { Outlet } from "react-router-dom";
+//import main from "../utils/openAI";
 
 const Browse=()=>{
 
