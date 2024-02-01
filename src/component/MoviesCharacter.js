@@ -2,7 +2,8 @@
 import { useSelector } from "react-redux"
 import { img_url } from "../constant"
 import useMoviesCharacter from "../hooks/useMoviesCharacter"
-import ShimmerEffect from "./ShimmerEffect"
+import ShimmerEffect from "./ShimmerEffect";
+
 const MoviesCharacter=({id})=>{
   //  console.log(id,"iddd")
     useMoviesCharacter(id)
@@ -12,6 +13,11 @@ const castchar=useSelector(store=>store.movies.moviesDetailCharcter)
     //if(!cast)return
 
 if(castchar===null)return <ShimmerEffect/>
+
+
+
+
+
 
 
  return (

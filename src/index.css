@@ -1,3 +1,40 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+   /* Hide scrollbar for IE, Edge and Firefox */
+    .no-scrollbar {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+  }
+}
+
+/* Define a class for the iframe container 
+.iframe-container {
+    width: 100%; /* Set initial width to 100% 
+}*/
+
+/* Apply a minimum width for small devices */
+@media (max-width: 307px) {
+     
+    .small-devices{
+        padding-top:20rem ;
+    }
+}
+html{
+    background-color: black;
+}
+@media (max-width: 431px) {
+     
+    .small{
+        flex-direction: row;
+    }
+    .sm{
+        padding-right: 5px;
+    }
+}
