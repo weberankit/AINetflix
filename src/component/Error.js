@@ -1,6 +1,7 @@
 import { faGlobe } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 const Error=({msg="failed to fetch"})=>{
+    //console.log(msg)
 return(
     <>
     

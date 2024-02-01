@@ -4,11 +4,11 @@ import { backgroundImg } from "../constant"
 const Gpt=()=>{
 return(
     <>
-     <div className="absolute -z-10 border border-solid"> 
+     <div className=" -z-10 border border-solid fixed"> 
     <img 
     src={backgroundImg}
-    alt="bg-img">
-
+    alt="bg-img" className="h-[800px] object-fill">
+    
     </img>
 </div>
     <GptSearchBar/>
