@@ -7,9 +7,29 @@
   "icons": [
     {
       "src": "maskable_icon.png",
-      "sizes": "64x64 32x32 24x24 16x16",
+      "sizes": "16x16",
       "type": "image/x-icon",
       "purpose": "maskable"
+    },
+    {
+      "src": "icon-20.png",
+      "type": "image/png",
+      "sizes": "20x20"
+    },
+    {
+      "src": "icon-32.png",
+      "type": "image/png",
+      "sizes": "32x32"
+    },
+    {
+      "src": "icon-48.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "icon-64.png",
+      "type": "image/png",
+      "sizes": "64x64"
     },
     {
       "src": "icon-192.png",
@@ -34,7 +54,7 @@
       "short_name": "developer",
       "description": "Connect developer LinkedIn",
       "url": "https://www.linkedin.com/in/ankitkrs/",
-      "icons": [{ "src": "likedinLogo.png","type": "image/png", "sizes": "192x192" }]
+      "icons": [{ "src": "linkedin.png","type": "image/png", "sizes": "19x19" }]
     }
   ],
   "start_url": ".",

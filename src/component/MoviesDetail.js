@@ -67,7 +67,7 @@ if (!trailerId) return
         // Add styles for your scrollable container 
        width: '100%',
        // height: '400px',
-        overflow: 'hidden',
+        //overflow: 'hidden',
         position: 'relative', // Required for dragging to work
       }}
       onMouseMove={(e) => handleDragScroll(e)}><MoviesCharacter id={detailsMovie?.id}/></div>
