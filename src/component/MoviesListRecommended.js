@@ -3,9 +3,9 @@ import "../App.css"
 import ShimmerEffect from "./ShimmerEffect"
 import  { useRef } from 'react';
 const MoviesListRecommended=({movies ,title})=>{
-//console.log(movies,"movies")
+
 const scrollContainerRef = useRef(null);
-//console.log("moviesBackground",Math.random())
+
 if(!movies ) return <ShimmerEffect/>
 
 
@@ -37,8 +37,7 @@ return(
         <div   ref={scrollContainerRef} className="flex overflow-x-scroll hide no-scrollbar" style={{
         // Add styles for your scrollable container 
        width: '100%',
-       // height: '400px',
-       // overflow: 'hidden',
+      
         position: 'relative', // Required for dragging to work
       }}
       onMouseMove={(e)=>handleDragScroll(e)}>

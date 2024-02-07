@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import swDev from './swDev';
+import { AddToHomeScreen } from 'react-pwa-add-to-homescreen';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 

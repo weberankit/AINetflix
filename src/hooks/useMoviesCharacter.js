@@ -11,7 +11,7 @@ const useMoviesCharacter=(id)=>{
   try{
     const fetching= await fetch(`https://api.themoviedb.org/3/movie/${id}/credits?language=en-US`, Api_options)
     const data=await fetching.json()
-   // console.log(data,"data")
+
     dispatch(moviesDetailCharcter(data))
   }catch(error){
     <Error msg={error.message}/>

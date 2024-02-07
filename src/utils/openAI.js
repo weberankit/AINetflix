@@ -7,6 +7,7 @@ import { gptMovies } from './gptSlice';
 import {  useDispatch } from 'react-redux';
 import lang from '../component/languageConstant';
 import { useSelector } from 'react-redux';
+import ShimmerEffect from '../component/ShimmerEffect';
    const OpenAICom=()=>{
     const dispatch=useDispatch()
    const inputref=useRef(null)
@@ -30,7 +31,7 @@ import { useSelector } from 'react-redux';
       async function main() {
 
  const openai = new OpenAI({
-        apiKey: process.env.OPEN_AI,
+        apiKey: process.env,
         dangerouslyAllowBrowser: true,
       });
  
@@ -43,19 +44,18 @@ const chatCompletion = await openai.chat.completions.create({
           model: 'gpt-3.5-turbo',
         });
 
-       console.log(chatCompletion,"this is chatGPT")
+  
 
       if(!chatCompletion.choices){
-        console.log("not found")
+       return <ShimmerEffect/>
       }
 const gptMoviesName=chatCompletion.choices?.[0]?.message?.content.split(",")
-console.log(gptMoviesName,"1st")
+
 const promiseArray = gptMoviesName.map((movie) => searchMovieTMDB(movie));
-// [Promise, Promise, Promise, Promise, Promise]
-console.log(promiseArray,"pr")
+
 const tmdbResults = await Promise.all(promiseArray);
 
-console.log(tmdbResults,"3rd");
+
 dispatch(gptMovies(tmdbResults))
 
       }

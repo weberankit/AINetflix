@@ -8,15 +8,15 @@ import { movieGenres } from "../utils/gptSlice";
 import Error from "../component/Error";
 const useMovieslist=()=>{
   const listMeomize=useSelector(store=>store.movies.list)
-  console.log(Math.random(),"list is hfhfhlist")
+  //console.log(Math.random(),"list is hfhfhlist")
     const dispatch=useDispatch()
        const getnowMoviesList= async()=>{
        try{
         const data= await fetch('https://api.themoviedb.org/3/movie/now_playing?&page=1', Api_options)
         const json=await data.json()
-      //  console.log(json,"json")
+      
         dispatch(addlist(json.results))
-       // console.log(Math.random(),"math")
+     
         }
         catch(error){
           

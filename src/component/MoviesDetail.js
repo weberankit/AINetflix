@@ -1,22 +1,24 @@
-//import { useNavigate } from "react-router-dom"
+
 import { img_url } from "../constant"
 import {  useSelector } from "react-redux"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPauseCircle, faPlayCircle } from '@fortawesome/free-solid-svg-icons'
-//import VideoBackgrond from "./VideoBackground"
+
 import {  useState } from "react"
 import useTrailer from "../hooks/useTrailer"
 import Header from "./Header"
-//import {useEffect} from "react"
+
 import MoviesCharacter from "./MoviesCharacter"
 import ShimmerEffect from "./ShimmerEffect"
 import useTranslate from "../hooks/useTranslate"
 import lang from "./languageConstant"
 import  { useRef } from 'react';
+
 const MoviesDetail=()=>{
 const[show,setshow]=useState(false)
      //clicked movies id getting from redux 
     const detailsMovie=useSelector(store=>store.movies?.moviesDetail)
+   
     //fetching trailer and storing to redux store
 //passing showhere so that we can use it for fetching video data on basis of it when user click play btn 
  useTrailer(detailsMovie?.id ,show)  
@@ -25,10 +27,10 @@ const trailerId=useSelector((store)=>store.movies?.trailerId)
 const langValue=useSelector((store)=>store.config.lang)
 //useTranslate(langValue)
 const [transValue , setTransValue] = useState({title:detailsMovie?.title,overview:detailsMovie?.overview})
-const moviesCategory=useSelector((store)=>store.gpt.movieGenres)
-console.log(moviesCategory)
-useTranslate(langValue,transValue.title,transValue.overview,setTransValue , detailsMovie.vote_average)
-console.log(langValue,"lan-movieswala")
+
+const flag=true
+useTranslate(langValue,transValue.title,transValue.overview,setTransValue ,flag)
+
 const scrollContainerRef = useRef(null);
 // Function to handle scrolling when dragging
 const handleDragScroll = (e) => {
@@ -44,10 +46,17 @@ const handleDragScroll = (e) => {
       }
     };
 
+    
+
+
+
  if(detailsMovie===null) return  <ShimmerEffect/>
 if (!trailerId) return 
  return(<>
     <Header displayHide={"hidden"} />
+
+   
+
         <div className=" bg-black" >
         <div>
             <div className=" flex  flex-row">
@@ -64,10 +73,9 @@ if (!trailerId) return
         </div>
             <h1 className="text-xs sm:text-lg pt-16 text-yellow-600">{transValue?.overview}</h1>
             <div  ref={scrollContainerRef} className="flex overflow-x-scroll pt-2 no-scrollbar" style={{
-        // Add styles for your scrollable container 
+        
        width: '100%',
-       // height: '400px',
-        //overflow: 'hidden',
+      
         position: 'relative', // Required for dragging to work
       }}
       onMouseMove={(e) => handleDragScroll(e)}><MoviesCharacter id={detailsMovie?.id}/></div>

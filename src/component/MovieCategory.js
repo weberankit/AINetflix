@@ -5,14 +5,14 @@ import ShimmerEffect from "./ShimmerEffect"
 const MoviesCategorys=()=>{
   const dispatch= useDispatch()
 const moviesCategory=useSelector((store)=>store.gpt.movieGenres)
-console.log(moviesCategory,"this is movies")
+
     //onclick of show btn movie category fetchec and then on click of category btn movie detail fetch
     //fetch movi details
 const handleMovielist=(id)=>{
 const movieList=async()=>{
 const fetchMovieDetail = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=f6288527fddde33383bd7652871ded21&with_genres=${id}`)
 const data= await fetchMovieDetail.json()
-//console.log(data)
+
 dispatch(showMovie(data.results))
 
 }

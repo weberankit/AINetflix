@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useSelector ,useDispatch} from "react-redux";
 import { addPrevLang } from "../utils/configSlice";
 //import { hasUnreliableEmptyValue } from "@testing-library/user-event/dist/utils";
-const useTranslate=(lang,title,overview,setTransValue)=>{
+const useTranslate=(lang,title,overview,setTransValue,flag)=>{
     const langValue=useSelector((store)=>store.config.lang)
     const dispatch=useDispatch()
    const prevLang=useSelector((store)=>store.config.prevLangs)
@@ -19,7 +19,7 @@ const useTranslate=(lang,title,overview,setTransValue)=>{
      method: 'POST',
      headers: {
        'content-type': 'application/json',
-       'X-RapidAPI-Key': '55194c2c60msha35133557a3eac2p1ce439jsn301cf7047222',
+      'X-RapidAPI-Key': process.env,
        'X-RapidAPI-Host': 'rapid-translate-multi-traduction.p.rapidapi.com'
      },
      body:JSON.stringify( {
@@ -38,23 +38,33 @@ const useTranslate=(lang,title,overview,setTransValue)=>{
    try {
      const response = await fetch(url, options);
      const result = await response.text();
-     console.log(JSON.parse(result),"result");
+    // console.log(JSON.parse(result),"result");
      const array=JSON.parse(result)
-     console.log(array[0])
-     console.log(array,"array")
+    // console.log(array)
+    // console.log(array,"array")
      //setTitle(array[0])
      //setOverView(array[1])
+    
      setTransValue({title:array[0],overview:array[1]})
+ if((array[0] ===undefined)||(array[1]===undefined))setTransValue({title:title,overview:overview})
+
    } catch (error) {
-     console.error(error);
+    // console.error(error);
+
+
    }
   }
       useEffect(() => {
-        api();
-        console.log("checking")
+
+        if(flag === true){
+           api();
+          console.log("checking",langValue)  
+        }
+        console.log("checking2",langValue)  
+       
       }, [langValue]);
     
-      console.log('hi I am translator');
+      //console.log('hi I am translator');
 }
 
 export default useTranslate;

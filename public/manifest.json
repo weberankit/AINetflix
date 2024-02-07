@@ -42,6 +42,12 @@
       "sizes": "512x512"
     },
     {
+      "src": "one.png",
+      "sizes": "1x1",
+      "type": "image/png"
+      
+    },
+    {
       "src": "icon-144.png",
       "type": "image/png",
       "sizes": "144x144",

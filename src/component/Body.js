@@ -2,13 +2,18 @@
 //import Browse from "./Browse"
 import { Outlet , useNavigate} from "react-router-dom";
 import {onAuthStateChanged } from "firebase/auth";
-import { useEffect ,useState} from "react";
+import { useEffect ,useState ,useRef} from "react";
 import { auth } from "../utils/firebase";
 import { useDispatch } from "react-redux";
 import { addUser,removeUser } from "../utils/userSlice";
+import AddToHomeScreen from "./AddToHome";
+import { useSelector } from "react-redux";
+import { showHome } from "../utils/configSlice";
 const Body=()=>{
-const dispatch=useDispatch()
+const dispatch = useDispatch()
 const navigate = useNavigate()
+//const user=useSelector((store)=>store.user)
+
 useEffect(()=>{
     //user sign in/out mange b this
  const subscribe = onAuthStateChanged(auth, (user) => {
@@ -36,14 +41,27 @@ setStatus("Please check your internet connection")
 window.addEventListener("online",()=>{
   setStatus(null)
 })
+//hide 
+const hideHomeInstall =useSelector((store)=>store.config.add)
 
 
 
+//if user click do not show me again then hiding add to home screen 
+const getFromLocalStorage=useRef(null)
+  getFromLocalStorage.current=  localStorage.getItem("hide")
+if(getFromLocalStorage.current)  dispatch(showHome("hidden"))
+//console.log(AddToHomeScreen(),"dhdhdhhdd")
     return(
         <>
         {
         onlineStatus&&<div className="bg-red-600 text-center font-bold  ">{onlineStatus}</div>
         }
+     <div className={`fixed z-[2000] bottom-0  left-0 right-0 ${hideHomeInstall} `}>
+{
+  <AddToHomeScreen/>
+} 
+</div>
+
 <Outlet/>
 
         </>

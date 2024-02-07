@@ -3,18 +3,16 @@ import lang from "./languageConstant"
 import MoviesCategorys from "./MovieCategory";
 import { useGptSearchHandle } from "../hooks/useMovieslist";
 import { useState} from "react"
-//import OpenAISuggestion from "../utils/openAI";
 import OpenAICom from "../utils/openAI";
 import MoviesCard from "./MoviesCard";
-//import lang from "./languageConstant";
+
 const GptSearchBar=()=>{
 //fetching movie category
   useGptSearchHandle()
 const langValue=useSelector((store)=>store.config.lang)
 const [toggleCategory , setToogleCategory] = useState(false)
 const gptMoviesData=useSelector((store)=>store.gpt.gptMovies)
-console.log(gptMoviesData,"data")
-//OpenAISuggestion("funny movies")
+
 return(
     <>
   <div className=" pt-28 md:pt-[10%] flex justify-center m-auto flex-col ">

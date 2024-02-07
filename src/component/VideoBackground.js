@@ -1,16 +1,15 @@
 
 import { useSelector} from "react-redux";
 import useTrailer from "../hooks/useTrailer"
-
+import { defaultVideo } from "../constant";
 const VideoBackgrond=({moviesId})=>{
 const trailerId=useSelector((store)=>store.movies.trailerId)
 
-//fetching trailer and storing to redux store
-//useTrailer(moviesId)
 
 
-const bgMaintrailerId=trailerId[0]
-console.log(bgMaintrailerId)
+
+const bgMaintrailerId=trailerId[defaultVideo]
+
 
 
 useTrailer(moviesId)

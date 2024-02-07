@@ -1,3 +1,4 @@
+/*
 import { useEffect } from 'react';
 
 const Translate = () => {
@@ -20,9 +21,9 @@ const Translate = () => {
     try {
       const response = await fetch(url, options);
       const result = await response.text();
-      console.log(JSON.parse(result), 'result');
+      //console.log(JSON.parse(result), 'result');
     } catch (error) {
-      console.error(error, 'error');
+      //console.error(error, 'error');
     }
   }
 
@@ -30,7 +31,7 @@ const Translate = () => {
     api();
   }, []);
 
-  console.log('hi I am translator');
+  //console.log('hi I am translator');
 };
 
-export default Translate;
+export default Translate;*/

@@ -1,7 +1,7 @@
 const ShimmerEffect=()=>{
 
     const res=new Array(1).fill(undefined);
-    console.log(res)
+   // console.log(res)
   
       return(
      <div className="flex flex-wrap m-2 p-4 justify-center">

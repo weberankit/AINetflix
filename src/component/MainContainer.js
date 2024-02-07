@@ -5,11 +5,12 @@ import ShimmerEffect from "./ShimmerEffect"
 
 const MainContainer=()=>{
 const movieslist=useSelector((store)=>store.movies?.list)
-//console.log(movieslist)
+
 if(!movieslist) return <ShimmerEffect/> 
 //hardcode value here we have used , we can use random function to select instead of hard coded
+//but not recommended becuse everytime new vlue call translate api to change background title video
 const mainMovies=movieslist[0]
-//console.log(mainMovies)
+
 
 return(
  <>

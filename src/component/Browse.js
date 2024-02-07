@@ -7,25 +7,36 @@ import usePopularMovies from "../hooks/usePopularMovies";
  import useTopRatedMovies from "../hooks/useTopRated";
  import Gpt from "./Gpt";
  import { useSelector } from "react-redux";
-//import Translate from "./Translate";
-//import { Outlet } from "react-router-dom";
-//import main from "../utils/openAI";
-
+import { useDispatch } from "react-redux";
+import { showHome } from "../utils/configSlice";
 const Browse=()=>{
-
+    const dispatch =useDispatch()
   const toggleValue=useSelector(store=>store.gpt.value)
-  console.log(toggleValue,'its va')
+
+ 
     useMovieslist()
     usePopularMovies()
     useTopRatedMovies()
-    //main()
-   // Translate()
+ 
+    
+   window.addEventListener('appinstalled', () => {
+    dispatch(showHome("hidden"))
+   
+});
+
+
+
+
     return(
         <>
     
 
        <Header/>
     
+  
+
+
+
     { toggleValue?
     <Gpt/>:
     <>

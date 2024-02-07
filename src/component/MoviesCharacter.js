@@ -5,12 +5,11 @@ import useMoviesCharacter from "../hooks/useMoviesCharacter"
 import ShimmerEffect from "./ShimmerEffect";
 
 const MoviesCharacter=({id})=>{
-  //  console.log(id,"iddd")
+
     useMoviesCharacter(id)
 
 const castchar=useSelector(store=>store.movies.moviesDetailCharcter)
-    //console.log(castchar,"got")
-    //if(!cast)return
+   
 
 if(castchar===null)return <ShimmerEffect/>
 

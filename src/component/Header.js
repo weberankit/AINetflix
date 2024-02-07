@@ -1,25 +1,26 @@
 import { useDispatch } from "react-redux";
 import {signOut } from "firebase/auth";
  import { auth } from "../utils/firebase";
-// import { useNavigate } from "react-router-dom";
+
  import {useSelector} from "react-redux"
 import {logo} from "../constant"
 import { toggle } from "../utils/gptSlice";
 import { supported_languages } from "../constant";
-import { changeLang } from "../utils/configSlice";
+import { apiCalling, changeLang, hideLangBox } from "../utils/configSlice";
 import { Link } from "react-router-dom";
 import lang from "./languageConstant";
 import { loginSkip } from "../utils/configSlice";
-//import { useState } from "react";
+
 const Header=({displayHide})=>{
-    //const navigate=useNavigate()
     const dispatch=useDispatch()
   const user=useSelector((store)=>store.user)
  const showGptBtn=useSelector(store=>store.gpt.value)
  const langValue=useSelector((store)=>store.config.lang)
- console.log(showGptBtn)
+
  const loginSkipValue=useSelector(store=>store.config.value)
- console.log(loginSkipValue,"loginskipValue")
+const apiCallingflag=useSelector(store=>store.config.callingApi)
+const hideLangcheckBox=useSelector(store=>store.config.hideLang)
+
     const handlesignout=()=>{
         //when user click on sign out btn this api   will call onauthstatechange else part and code inside it
     signOut(auth).then(() => {
@@ -36,11 +37,30 @@ dispatch(toggle())
 }
 
 const handleLang=(e)=>{
-//  console.log(e.target.value , e.target)
+
  dispatch(changeLang(e.target.value))
+ //preventing unwanted api call on every render of component
+ //it will only call when it changes
+ //dispatcjing true value so that useTransltae hooks  called only once
+dispatch(apiCalling(true))
+//after changing languges hiding lang box to prevent from unwanted api call
+dispatch(hideLangBox())
 
   }
-  console.log(user,"iii")
+
+
+if(apiCalling){
+ setTimeout(()=>{
+    dispatch(apiCalling(false))
+ },10000)
+ 
+
+}
+
+
+
+  //when user login detil is fetching fromfirebase and meanwhile user click skip btn
+  //so preventing to show header component two times
 user ?dispatch(loginSkip(false)):console.log('hi')
 
 return(
@@ -49,10 +69,10 @@ return(
 
     {user && (
     
-<div className="absolute px-8 py-2 bg-gradient-to-b from-black z-10 w-screen flex justify-between">
+<div className=" z-[1000] absolute px-8 py-2 bg-gradient-to-b from-black  w-screen flex justify-between">
  <Link to={"/browse"}>  <img  className="w-44" src={logo} alt="logo_img"></img></Link> 
      <button onClick={handleGpt} className={`px-1 py-1 text-sm p-1 md:px-16  text-white bg-red-600   rounded-2xl ${displayHide}`}>{showGptBtn ?  `${lang[langValue].home}` : `${lang[langValue].search}` }</button>
-     <select className={`${displayHide} p-2 m-2 bg-gray-900 text-white rounded-lg  w-4 sm:w-16`} onChange={handleLang}>
+     <select className={`${displayHide} ${hideLangcheckBox} p-2 m-2 bg-gray-900 text-white rounded-lg  w-4 sm:w-16`} onChange={handleLang}>
 {supported_languages.map(item=>{return <option key={item.identifier} value={item.identifier} >{item.name}</option>})}
      </select>
     <div className="p-2 flex border border-red-700 border-b-0 justify-between  ">
@@ -69,9 +89,9 @@ return(
     )
 
     }
-{loginSkipValue && ( <div className="absolute px-8 py-2 bg-gradient-to-b from-black z-10 w-screen flex justify-between"><Link to={"/browse"}>  <img  className="w-44" src={logo} alt="logo_img"></img></Link> 
-     <button onClick={handleGpt} className={`text-white bg-red-600 px-16  rounded-2xl ${displayHide}`}>{showGptBtn ?  `${lang[langValue].home}` : `${lang[langValue].search}` }</button>
-     <select className={`${displayHide} p-2 m-2 bg-gray-900 text-white rounded-lg  `} onChange={handleLang}>
+{loginSkipValue && ( <div className="absolute px-8 py-2 bg-gradient-to-b from-black z-[1000] w-screen flex justify-between"><Link to={"/browse"}>  <img  className="w-44" src={logo} alt="logo_img"></img></Link> 
+     <button onClick={handleGpt} className={`text-white bg-red-600 px-16  rounded-2xl ${displayHide} `}>{showGptBtn ?  `${lang[langValue].home}` : `${lang[langValue].search}` }</button>
+     <select className={`${displayHide} ${hideLangcheckBox} p-2 m-2 bg-gray-900 text-white rounded-lg  `} onChange={handleLang}>
 {supported_languages.map(item=>{return <option key={item.identifier} value={item.identifier} >{item.name}</option>})}
      </select>  </div> )
      

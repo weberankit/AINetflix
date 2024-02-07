@@ -12,8 +12,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGlobe } from "@fortawesome/free-solid-svg-icons";
 import {  signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { loginSkip } from "../utils/configSlice";
+import { showHome } from "../utils/configSlice";
 
-//import { useNavigate } from "react-router-dom";
 const Login=()=>{
   const dispatch = useDispatch()
 
@@ -96,20 +96,11 @@ signInWithPopup(auth, provider)
   .then((result) => {
     // This gives you a Google Access Token. You can use it to access the Google API.
     const credential = GoogleAuthProvider.credentialFromResult(result);
-   // const token = credential.accessToken;
-    // The signed-in user info.
-   // const user = result.user;
-    // IdP data available using getAdditionalUserInfo(result)
-    // ...
+
   }).catch((error) => {
-    // Handle Errors here.
-    //const errorCode = error.code;
+   
     const errorMessage = error.message;
-    // The email of the user's account used.
-   // const email = error.customData.email;
-    // The AuthCredential type that was used.
-   // const credential = GoogleAuthProvider.credentialFromError(error);
-    // ...
+  
     setErrorMsg(errorMessage)
   });
 
@@ -118,6 +109,10 @@ function directToHome(){
 navigate("/browse")
 dispatch(loginSkip(true))
 }
+//disappear on login
+setTimeout(()=>{
+  dispatch(showHome("hidden"))
+},0)
 
 
     return(
@@ -131,12 +126,14 @@ dispatch(loginSkip(true))
      </img>
 </div>
 
-<form onSubmit={(e)=>e.preventDefault()} className="absolute w-[300px] md:w-[400px] p-12 bg-black my-36 mx-auto right-0 left-0  text-white bg-opacity-80 rounded-lg" >
+<form onSubmit={(e)=>e.preventDefault()} className="absolute w-[300px] md:w-[400px] p-12 bg-black mt-16 sm:my-36 mx-auto right-0 left-0  text-white bg-opacity-80 rounded-lg" >
+   <h2 className="text-sm text-purple-700">Plz do not skip login, recommended to use google signIn</h2>
     <h1>{isLogin?"Sign In":"Sign Up"}</h1>
+   
 {!isLogin && <input ref={fullName} type="text" className="py-4 my-4 w-full bg-gray-600 rounded-lg" placeholder="  Full Name"/>
 }
 <input ref={email} type="text" className="py-4 my-4 w-full bg-gray-600 rounded-lg" placeholder="  Email Address"/>
-<input ref={password} type="password" className="py-4 w-full my-4 bg-gray-600 rounded-lg" placeholder="  password"/>
+<input ref={password} type="password" className="py-4 w-full my-4 bg-gray-600 rounded-lg" placeholder="  password (@Weber12)"/>
 <p className="text-red-600 font-bold">{errorMsg} </p>
 <button onClick={handleCheckvalidate} className="py-6 my-6 bg-red-700 w-full rounded-lg">{isLogin ? "Sign In" : "Sign Up"}</button>
 <p className="cursor-pointer" onClick={toggleSign}>{isLogin?"New to Netflix ? Sign Up now" : "Already user ? Sign In Now"}</p>

@@ -8,7 +8,8 @@ const movies = createSlice({
         trailerId:[],
         movie:null,
         moviesDetail:null,
-        moviesDetailCharcter:null
+        moviesDetailCharcter:null,
+      
     },
     reducers:{
         addlist:(state,action)=>{
@@ -34,6 +35,7 @@ const movies = createSlice({
         moviesDetailCharcter:(state,action)=>{
             state.moviesDetailCharcter=action.payload
         }
+        
     }
 })
 

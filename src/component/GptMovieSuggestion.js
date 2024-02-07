@@ -1,10 +1,10 @@
 import { useSelector } from "react-redux"
 import MoviesCard from "./MoviesCard"
-import ShimmerEffect from "./ShimmerEffect"
+
 
 const GptMovieSuggestion=()=>{
 const selector=useSelector(store=>store.movies.movie)
-console.log(selector)
+//console.log(selector)
 if(!selector) return 
 
 return(

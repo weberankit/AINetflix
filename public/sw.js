@@ -1,4 +1,4 @@
-console.log("sw is  in public folder")
+//console.log("sw is  in public folder")
 
 let cacheData = "appV1"
 //this --- window 
