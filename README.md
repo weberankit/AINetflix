@@ -1,3 +1,9 @@
+![Screenshot (318)](https://github.com/weberankit/AINetflix/assets/94105514/95c730dc-c12d-41ac-aad7-ffbf0bbd340f)
+
+
+
+
+![x1hL2Ygh5h](https://github.com/weberankit/AINetflix/assets/94105514/ae987a1f-1dab-4ccb-a4be-b68a0677825d)
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
