@@ -1,3 +1,41 @@
+![Screenshot (318)](https://github.com/weberankit/AINetflix/assets/94105514/95c730dc-c12d-41ac-aad7-ffbf0bbd340f)
+
+![x1hL2Ygh5h](https://github.com/weberankit/AINetflix/assets/94105514/ae987a1f-1dab-4ccb-a4be-b68a0677825d)
+
+📺 🌟 🚀 Introducing the Offline PWA version of Netflix!🚀 🎬
+
+🌐 This is not only a website but a 🔥 PWA app that can be installed from any app store.
+
+🔥 Uniqueness of this app:🚀
+
+📌 Multilingual: It translates dynamic data (Eng to Bhojpuri, Hindi 😊)
+
+📌 PWA: It can be installed on any device such as the Microsoft Store, Play Store, or any other.
+📌 Offline: It also supports offline mode as data is cached.
+📌 Prevention 🔥 from unwanted API calls.
+📌 Reusability: The same components are used as standard practice.
+📌 Standard code: The code follows standard practices.
+📌Login with Google.
+📌Categorizing movies using TMDB movies.
+📌 On click, movie details and videos are fetched.
+
+🔑 Key features:
+
+🌕ChatGPT (OpenAI) API integrated with TMDB data to fetch movies.
+🌕Login/logout integration with Firebase.
+🌕Skip option is also provided.
+🌕Add to screen pop-up on page refresh and "Do not show me again"
+Movie actor names.
+🌕Fetching TMDB movie lists.
+
+💡 Supporting:
+
+Clean code.
+Prevention of unwanted API calls.
+Use of the same component.
+Code divided into chunks.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
