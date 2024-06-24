@@ -17,6 +17,8 @@ event.waitUntil(
 )
 })
 
+
+
 /*
 this.addEventListener("fetch",(event)=>{
 if(!navigator.onLine){
@@ -34,6 +36,7 @@ if(!navigator.onLine){
 })*/
 
 /**/
+
 self.addEventListener("fetch", (event) => {
     event.respondWith(
         caches.open(cacheData).then((cache) => {

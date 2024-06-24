@@ -14,7 +14,7 @@ const useTopRated=()=>{
             //console.log(json ,"toprated")
             dispatch(addTopRatedMovies(json.results))
             }catch(error){
-       <Error msg={error.message}/>
+       
             
             }
             }

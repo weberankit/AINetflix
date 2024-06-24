@@ -19,8 +19,8 @@ const useMovieslist=()=>{
      
         }
         catch(error){
-          
-          <Error msg={error.message}/>
+       
+         
         }
       }
         useEffect(()=>{
@@ -42,10 +42,16 @@ const useMovieslist=()=>{
   console.log(catgoryMemoization,"categotyy")
     const dispatch=useDispatch()
 const moviesCategory=async()=>{
+  try{
     const fetchData= await fetch('https://api.themoviedb.org/3/genre/movie/list?language=hn', Api_options)
     const json= await fetchData.json()
     dispatch(movieGenres(json.genres))
     console.log(json)
+  }catch(error){
+    
+  }
+
+
     }
    
     useEffect(()=>{

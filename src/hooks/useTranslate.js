@@ -19,7 +19,8 @@ const useTranslate=(lang,title,overview,setTransValue,flag)=>{
      method: 'POST',
      headers: {
        'content-type': 'application/json',
-      'X-RapidAPI-Key': process.env,
+      'X-RapidAPI-Key': 'e210f23be3msh3e034747f16c4dap1c6f18jsnf8dd7ef348cd'
+      ,
        'X-RapidAPI-Host': 'rapid-translate-multi-traduction.p.rapidapi.com'
      },
      body:JSON.stringify( {
