@@ -31,13 +31,13 @@ import ShimmerEffect from '../component/ShimmerEffect';
 
 }
   };
+let val="d"
 
-
-
+//"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"
       async function main() {
 
  const openai = new OpenAI({
-        apiKey:"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",
+        apiKey:val,
         // process.env
         dangerouslyAllowBrowser: true,
       });
