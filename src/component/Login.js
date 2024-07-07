@@ -127,7 +127,7 @@ setTimeout(()=>{
 </div>
 
 <form onSubmit={(e)=>e.preventDefault()} className="absolute w-[300px] md:w-[400px] p-12 bg-black mt-16 sm:my-36 mx-auto right-0 left-0  text-white bg-opacity-80 rounded-lg" >
-   <h2 className="text-sm text-purple-700">Plz do not skip login, recommended to use google signIn</h2>
+   <h2 className="text-sm text-purple-700">You can skip login, recommended to use Email signIn</h2>
     <h1>{isLogin?"Sign In":"Sign Up"}</h1>
    
 {!isLogin && <input ref={fullName} type="text" className="py-4 my-4 w-full bg-gray-600 rounded-lg" placeholder="  Full Name"/>
@@ -137,7 +137,7 @@ setTimeout(()=>{
 <p className="text-red-600 font-bold">{errorMsg} </p>
 <button onClick={handleCheckvalidate} className="py-6 my-6 bg-red-700 w-full rounded-lg">{isLogin ? "Sign In" : "Sign Up"}</button>
 <p className="cursor-pointer" onClick={toggleSign}>{isLogin?"New to Netflix ? Sign Up now" : "Already user ? Sign In Now"}</p>
-<p className="text-white bg-red-700 m-2   font-bold p-2 hover:bg-black cursor-pointer " onClick={()=>loginWithGoogle(auth)}> <FontAwesomeIcon icon={faGlobe}></FontAwesomeIcon> sign in with google</p>
+<p className="text-white bg-red-700 m-2   font-bold p-2 hover:bg-black cursor-pointer "> </p>
 <p className="text-center pt-2 mt-2 p-2 rounded-lg bg-black text-white cursor-pointer" onClick={()=>{directToHome()}}>Skip!login</p>
 </form>
 
